@@ -17,8 +17,8 @@ function getResult(a,b,c){
     
     if (dm < 0) 
        return [];
-    if (dm === 0) 
-        xOne = ((-b) + Math.sqrt(dm))/(2*a);
+    if (dm >= 0) 
+        x[0] = ((-b) + Math.sqrt(dm))/(2*a);
     if (dm > 0){
         x[0] = ((-b) + Math.sqrt(dm))/(2*a);
         x[1] = ((-b) -Math.sqrt(dm))/(2*a);
@@ -40,12 +40,12 @@ function getAverageMark(marks){
     	console.log("Количество оценок больше 5");
     	marks = marks.slice(0, 5);
     }
-    let averageMark = 0;
+    let sumMark = 0;
     for (let i=0; i < marks.length; i++) {
-    	averageMark += marks[i];
+    	sumMark += marks[i];
     }
-    averageMark = (averageMark/marks.length);
-    return averageMark;
+
+    return sumMark/marks.length;
 }
 
 function calculateDrinkTask(){
@@ -59,8 +59,7 @@ function askDrink(name,dateOfBirthday){
     // код для задачи №3 писать здесь
     //console.log(result)
     //return result;
-    let nowYear = new Date();
-    let age = nowYear.getFullYear() - dateOfBirthday.getFullYear();
+    let age = new Date().getFullYear() - dateOfBirthday.getFullYear();
     let message;
     if (age > 18) {
     	message = `Не желаете ли олд-фэшн, ${name} ?`;
