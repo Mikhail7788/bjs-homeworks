@@ -77,17 +77,13 @@ function getAverageScore(data) {
 
 //Задание 3
 
-function getPersonData(secretData) {
-    if (secretData.aaa === 0 && secretData.bbb === 0) {
-      return secretData = {firstName: "Родриго", lastName: "Родриго"};
-    } else if (secretData.aaa === 1 && secretData.bbb === 1) {
-      return secretData = {firstName: "Эмильо", lastName: "Эмильо"};
-    } else if (secretData.aaa === 0 && secretData.bbb === 1) {
-      return secretData = {firstName: "Родриго", lastName: "Эмильо"};
-    } else if (secretData.aaa === 1 && secretData.bbb === 0) {
-      return secretData = {firstName: "Эмильо", lastName: "Родриго"};
-    } 
-  }
+function getPersonData( secretData ) {
+ 	let array = ["Родриго", "Эмильо"];
+ 	return {
+ 		firstName: array[secretData.aaa],
+ 		lastName: array[secretData.bbb]
+ 	}
+ }
   
   console.log(getPersonData({aaa: 0, bbb: 0}));
   console.log(getPersonData({aaa: 1, bbb: 1}));
