@@ -55,12 +55,8 @@ function sayHello() {
 }
 
 function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    //return greeting;
-    if ( typeof name === 'undefined' || name === null || name === "" ) {
-        name = 'Аноним';
-    }
     
-    let greeting = `Привет, мир! Меня зовут ${name}.`;
-    return greeting;
+    const isValidName = !!name;
+    return `Привет, мир! Меня зовут ${isValidName ? name : 'Аноним'}`;
 }
+
