@@ -7,8 +7,8 @@ function sleep(milliseconds)
 
 
 function sum(...args) {
-  // Замедление на половину секунды.
-  sleep(500);
+  // Замедление на 1/10 секунды.
+  //sleep(100);
   return args.reduce((sum, arg) => {
       return sum += +arg;
   }, 0);
@@ -52,3 +52,10 @@ function testCase (testFunction, timeCheck) {
 
   console.timeEnd(timeCheck);
 }
+
+testCase(sum, 'sum'); //sum: 51006.01611328125ms
+testCase(memorize(sum, 7), 'mSum'); // mSum: 101.087890625ms
+
+// убрал 'sleep'
+testCase(sum, 'sum'); //sum: 0.3ms
+testCase(memorize(sum, 7), 'mSum'); //mSum: 1ms
