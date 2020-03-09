@@ -18,19 +18,28 @@ class AlarmClock {
     }
     
     removeClock(id) {
-        if (this.alarmCollection.some(value => value.id === id)) {
-            this.alarmCollection.filter(value => value.id != id);
-            return true;
+        let arr = this.alarmCollection;
+        if (arr.length !== 0) {
+           this.alarmCollection = this.alarmCollection.filter(bell => bell.id != id);
+           return true;
         } else {
-            return false;
+           return false;
         }
+        
     }
     
     getCurrentFormattedTime() {
         let time = new Date();
         let hours = time.getHours();
         let minutes = time.getMinutes();
-        return `${hours} : ${minutes}`;
+        
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+        return `${hours}:${minutes}`;
         
     }
     
@@ -55,7 +64,7 @@ class AlarmClock {
         }
         console.log('будильник выключен');
         
-        //return this.timerId = null;
+        return this.timerId = null;
     }
     
     printAlarms() {
@@ -82,6 +91,3 @@ function testCase() {
 }
 
 testCase();
-
-
-

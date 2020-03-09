@@ -57,5 +57,5 @@ testCase(sum, 'sum'); //sum: 51006.01611328125ms
 testCase(memorize(sum, 7), 'mSum'); // mSum: 101.087890625ms
 
 // убрал 'sleep'
-testCase(sum, 'sum'); //sum: 0.3ms
-testCase(memorize(sum, 7), 'mSum'); //mSum: 1ms
+testCase(sum, 'sum'); //sum: 0.30615234375ms
+testCase(memorize(sum, 7), 'mSum'); //mSum: 0.720947265625ms
